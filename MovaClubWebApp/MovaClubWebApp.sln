@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovaClubWebApp", "MovaClubWebApp\MovaClubWebApp.csproj", "{58F66171-280F-4442-8A1C-77EED60FBD21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58F66171-280F-4442-8A1C-77EED60FBD21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F66171-280F-4442-8A1C-77EED60FBD21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F66171-280F-4442-8A1C-77EED60FBD21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F66171-280F-4442-8A1C-77EED60FBD21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6084BB5-2800-480B-B6A9-95891BD66D7E}
+	EndGlobalSection
+EndGlobal
