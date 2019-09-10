@@ -1,4 +1,44 @@
-﻿@import "@material/top-app-bar/mdc-top-app-bar";
+﻿@import "global.scss";
+@import "@material/typography/mdc-typography";
+@import "@material/textfield/helper-text/mdc-text-field-helper-text";
+@import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/textfield/mdc-text-field";
 @import "@material/button/mdc-button";
 @import "@material/layout-grid/mdc-layout-grid";
+@import "@material/floating-label/mdc-floating-label";
+@import "@material/notched-outline/mdc-notched-outline";
+@import "@material/list/mdc-list";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/select/mdc-select";
+@import "@material/list/mdc-list";
+@import "@material/elevation/mdc-elevation";
+@import "@material/textfield/icon/mdc-text-field-icon";
+body{
+    margin: 0px;
+
+}
+
+.my-main {
+    padding-top: 64px;
+    width: 100%;
+    //position: absolute;
+   // height: auto;
+}
+
+.text-danger{
+    color:red;
+}
+
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+

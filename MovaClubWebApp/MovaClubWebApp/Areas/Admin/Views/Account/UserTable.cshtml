@@ -1,0 +1,47 @@
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model MovaClubWebApp.Areas.Admin.Models.ManageModel
+
+
+<div class="my-table">
+    <table class="my-table__content">
+        <thead>
+            <tr>
+                <th class="my-table__header-cell">Name</th>
+                <th class="my-table__header-cell">Email</th>
+                <th class="my-table__header-cell">Phone Number</th>
+                <th class="my-table__header-cell">Role</th>
+                <th class="my-table__header-cell"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.ViewUsers)
+            {
+                <tr>
+                    <td class="my-table__content-cell">
+                        @Html.DisplayFor(modelUser => user.FirstName) @Html.DisplayFor(modelUser => user.LastName)
+                    </td>
+                    <td class="my-table__content-cell">
+                        @Html.DisplayFor(modelUser => user.Email)
+                    </td>
+                    <td class="my-table__content-cell">
+                        @Html.DisplayFor(modelUser => user.PhoneNumber)
+                    </td>
+                    <td class="my-table__content-cell">
+                        @Html.DisplayFor(modelUser => user.Role)
+                    </td>
+                    <td class="my-table__content-cell">
+                        <a asp-area="Admin" asp-controller="Account" asp-action="AboutUser" asp-route-username="@user.UserName">View</a>
+                        <a asp-area="Admin" asp-controller="Account" asp-action="DeleteUser" asp-route-username="@user.UserName" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#user-table">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script src="~/js/areas/admin/account/user-table.js">
+
+</script>
+<script>UserTable.run();</script>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery validate.md.js Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script src="../dist/jquery.validate.md.min.js"></script>
+    <style>
+    body { background-color: #f7f7f7; }
+    .container { margin: 150px auto; max-width: 640px; }
+</style>
+</head>
+<body>
+    <div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/form/Material-Form-Validator-Input-Mask.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+    <div class="container">
+        <h1>jQuery validate.md.js Demo</h1>
+<form class="login-form" id="login_form">
+    <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon" data-mdc-auto-init="MDCTextField">
+        <input class="mdc-text-field__input email" type="email" id="login_email" name="email" data-error="email-error">
+        <label class="mdc-floating-label" for="login_email">E-mail</label>
+        <i class="material-icons mdc-text-field__icon" tabindex="0" role="button"></i>
+        <div class="mdc-notched-outline">
+            <svg>
+                <path class="mdc-notched-outline__path"></path>
+            </svg>
+        </div>
+        <div class="mdc-notched-outline__idle"></div>
+    </div>
+    <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" id="email-error" aria-hidden="true"></p>
+    <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+        <input class="mdc-text-field__input tel error" type="tel" id="login_phone" name="tel" placeholder="+7 (___) ___-____" data-error="tel-error" aria-invalid="true">
+        <label class="mdc-floating-label" for="login_phone"></label>
+        <i class="material-icons mdc-text-field__icon" tabindex="0" role="button"></i>
+        <div class="mdc-notched-outline">
+            <svg>
+                <path class="mdc-notched-outline__path"></path>
+            </svg>
+        </div>
+        <div class="mdc-notched-outline__idle"></div>
+    </div>
+    <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" id="tel-error" aria-hidden="true"></p>
+    <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon" data-mdc-auto-init="MDCTextField">
+        <input class="mdc-text-field__input password" type="password" id="login_password" name="password" data-error="password-error">
+        <label class="mdc-floating-label" for="login_password">Password</label>
+        <i class="material-icons mdc-text-field__icon" tabindex="0" role="button"></i>
+        <div class="mdc-notched-outline">
+            <svg>
+                <path class="mdc-notched-outline__path"></path>
+            </svg>
+        </div>
+        <div class="mdc-notched-outline__idle"></div>
+    </div>
+    <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" id="password-error" aria-hidden="true"></p>
+    <div class="form-submit">
+        <button class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple">Submit</button>
+    </div>
+</form>
+</div>
+<script>
+    // Init Validation
+    $('#login_form').initValidate({
+        email: {
+            required: true,
+            minlength: 4,
+            emailfull: true
+        },
+        password: {
+            required: true,
+            minlength: 5,
+            maxlength: 20
+        },
+    },
+    {
+        tel: { minlengthphone: "Insert number +7 (999) 999-9999" }
+    }, true);
+
+    // Material Design component
+    mdc.autoInit();
+
+    // Init Masked Input
+    $('#login_phone').focus().mask('+7 (999) 999-9999').click(function () {
+        $(this).focus();
+    });
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

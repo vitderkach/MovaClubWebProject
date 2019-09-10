@@ -1,0 +1,37 @@
+﻿@import "global.scss";
+
+.username,
+.password,
+.button-login,
+.login-social,
+.text-failed {
+    display: flex;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.login-social {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.button-login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px auto 20px auto;
+}
+
+.button-container button {
+    margin: 3px;
+}
+
+.account-warning {
+    margin: auto;
+}
+
+.account-warning__text {
+    color: red;
+    font-size: 1.5em;
+}

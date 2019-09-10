@@ -1,0 +1,30 @@
+{
+  "name": "jquery-validation-for-material-design",
+  "version": "1.0.1",
+  "description": "jQuery Validation with support Material Design + Masked Input Plugin ",
+  "main": "validate.material-design.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magersoft/jquery.validate.md.git"
+  },
+  "author": "Vladislav Mager",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magersoft/jquery.validate.md/issues"
+  },
+  "homepage": "https://github.com/magersoft/jquery.validate.md#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "merge-stream": "^1.0.1"
+  },
+  "dependencies": {}
+}

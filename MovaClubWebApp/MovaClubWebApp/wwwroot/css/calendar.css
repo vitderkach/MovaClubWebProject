@@ -1,0 +1,153 @@
+.timetable {
+  display: flex;
+  flex-direction: row;
+  min-width: 400px;
+  position: absolute;
+  height: calc(100% - 64px);
+  width: 100%; }
+
+.calendar {
+  width: 300px; }
+
+/* Month header */
+.calendar__month {
+  padding: 70px 25px;
+  background: #1abc9c;
+  text-align: center; }
+
+/* Month list */
+.month__list {
+  margin: 0;
+  padding: 0; }
+
+.month__list li {
+  list-style-type: none; }
+
+.calendar__month li {
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 3px; }
+
+/* Previous button inside month header */
+.month__prev {
+  float: left;
+  padding-top: 10px; }
+
+/* Next button */
+.month__next {
+  float: right;
+  padding-top: 10px; }
+
+/* Weekdays (Mon-Sun) */
+.calendar__weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd; }
+
+.weekdays__item {
+  list-style-type: none;
+  display: inline-block;
+  width: 13%;
+  color: #666;
+  text-align: center; }
+
+/* Days (1-31) */
+.calendar__days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0; }
+
+.days__item {
+  list-style-type: none;
+  display: inline-block;
+  width: 14.2%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #777; }
+
+/* Highlight the "current" day */
+.days__item--active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important; }
+
+.schedule {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: calc(100% - 300px);
+  display: flex;
+  flex-direction: column; }
+
+.schedule__body {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  width: 100%; }
+
+.schedule__content {
+  min-width: 400px;
+  width: calc(100% - 70px); }
+
+.schedule__content-item {
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  min-height: 48px; }
+
+.schedule__content-item:last-child {
+  border-bottom: none; }
+
+/*.schedule__content-item:after {
+        content: ".";
+        display: block;
+        visibility: hidden;
+        clear: both;
+    }*/
+.schedule__header {
+  border-bottom: 1px solid grey;
+  height: 50px;
+  display: flex;
+  flex-direction: row; }
+
+.schedule__time {
+  position: relative;
+  top: 40px; }
+
+.schedule__time-item {
+  height: 49px;
+  padding-right: 8px;
+  text-align: right;
+  width: 60px; }
+
+.schedule__padding {
+  width: 60px; }
+
+.schedule__date {
+  display: flex;
+  flex-direction: row;
+  width: 100%; }
+
+.schedule__day {
+  border-radius: 8px;
+  font-size: 20px;
+  line-height: 40px;
+  height: 40px;
+  background-color: aqua;
+  text-align: center;
+  width: 40px;
+  position: relative;
+  top: 4px; }
+
+.schedule__weekday {
+  font-size: 20px;
+  line-height: 40px;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  left: 2px;
+  top: 4px; }

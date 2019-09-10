@@ -1,0 +1,58 @@
+﻿@model MovaClubWebApp.Models.Shared.RoleRequestFieldModel;
+
+@{
+    var switcherOpened = (Model.ContentOpened) ? "" : "settings-form--hidden";
+}
+
+@if (Model.RoleRequest != "Empty")
+{
+    <ul class="mdc-list">
+        <li role="separator" class="mdc-list-divider"></li>
+        <li class="mdc-list-item settings-switcher" id="role-request-switcher">
+            <div class="mdc-list-item__text unselectable">Change role</div>
+
+            <div class="mdc-list-item__content unselectable">Requires intervention</div>
+            <div class="mdc-list-item__meta material-icons settings-arrow unselectable">keyboard_arrow_right</div>
+        </li>
+        <li class="settings-list-item settings-form settings-list-item">
+
+            <div class="settings-form @switcherOpened">
+                <div class="settings-confirm-text mdc-typography settings-form-item">@Model.ConfirmText</div>
+                <div asp-validation-summary="ModelOnly" class="settings-form-item mdc-typography"></div>
+                <div class="settings-description-text mdc-typography">The user want to change his role to @Model.RoleRequest. Do you accept this request?</div>
+                <div class="settings__submit settings-form-item">
+                    <a class="mdc-button mdc-button--unelevated" asp-action="ConfirmRole" asp-route-userName="@Model.UserName" asp-route-confirm="true" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#role-request-field">
+                        <span class="mdc-button__label">Accept</span>
+                    </a>
+                    <a class="mdc-button mdc-button--unelevated" asp-action="ConfirmRole" asp-route-userName="@Model.UserName" asp-route-confirm="false" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#role-request-field">
+                        <span class="mdc-button__label">Reject</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <script>AccountSettings.run("role-request-switcher", @Model.ContentOpened.ToString().ToLower())</script>
+}
+else
+{
+
+    <ul class="mdc-list">
+        <li role="separator" class="mdc-list-divider"></li>
+        <li class="mdc-list-item settings-switcher">
+            <div class="mdc-list-item__text unselectable">Change role</div>
+            @if (Model.ConfirmText != null)
+            {
+                <div class="mdc-list-item__content unselectable settings-confirm-text">@Model.ConfirmText</div>
+            }
+            else
+            {
+                <div class="mdc-list-item__content unselectable">Missing</div>
+            }
+
+
+        </li>
+    </ul>
+}
+
+

@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "About user";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@section AreasAdminAcoountAboutUser
+    {
+    <link href="~/css/admin/account/about-user.css" rel="stylesheet" />
+}
+@model MovaClubWebApp.Areas.Admin.Models.AboutUserModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<script src="~/js/account/settings.js"></script>
+<script src="~/js/account/settings-startup.js">
+
+</script>
+<div class="settings">
+    <div class="mdc-elevation--z5 settings-elevation">
+        <div class="settings-header">
+            <span class="settings-header__text">Profile settings</span>
+        </div>
+        <div class="settings-body">
+
+            <div class="settings-body-item" id="name-field">
+                @await Html.PartialAsync("Settings/NameField", new MovaClubWebApp.Models.Shared.NameFieldModel { FirstName = Model.ViewUser.FirstName, LastName = Model.ViewUser.LastName, ContentOpened = false, UserName = Model.ViewUser.UserName })
+            </div>
+
+            <div class="settings-body-item" id="birthday-field">
+                @await Html.PartialAsync("Settings/BirthdayField", new MovaClubWebApp.Models.Shared.BirthdayFieldModel { Birthday = Model.ViewUser.Birthday, ContentOpened = false, UserName = Model.ViewUser.UserName })
+            </div>
+
+            <div class="settings-body-item" id="email-field">
+                @await Html.PartialAsync("Settings/EmailField", new MovaClubWebApp.Models.Shared.EmailFieldModel { Email = Model.ViewUser.Email, ContentOpened = false, UserName = Model.ViewUser.UserName })
+            </div>
+
+            <div class="settings-body-item" id="number-field">
+                @await Html.PartialAsync("Settings/PhoneNumberField", new MovaClubWebApp.Models.Shared.PhoneNumberFieldModel { PhoneNumber = Model.ViewUser.PhoneNumber, ContentOpened = false, UserName = Model.ViewUser.UserName })
+            </div>
+
+            <div class="settings-body-item" id="role-field">
+                @await Html.PartialAsync("Settings/RoleField", new MovaClubWebApp.Models.Shared.RoleFieldModel { Role = Model.ViewUser.Role, ContentOpened = false, UserName = Model.ViewUser.UserName })
+            </div>
+
+            <div class="settings-body-item" id="role-request-field">
+                @await Html.PartialAsync("Settings/RoleRequestField", new MovaClubWebApp.Models.Shared.RoleRequestFieldModel { RoleRequest = Model.ViewUser.ChangeRoleRequest, ContentOpened = false, UserName = Model.ViewUser.UserName })
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>

@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Manage";
+}
+
+@section AreasAdminAccountUserTable {
+    <link href="~/css/admin/account/manage.css" rel="stylesheet" />
+    <link href="~/css/admin/account/user-table.css" rel="stylesheet" />
+}
+
+@model MovaClubWebApp.Areas.Admin.Models.ManageModel
+
+<div class="my-table" id="user-table">
+    @await Html.PartialAsync("UserTable", Model)
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>

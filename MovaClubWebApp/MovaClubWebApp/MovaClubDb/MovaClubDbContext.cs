@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MovaClubWebApp.MovaClubDb.Models;
 namespace MovaClubWebApp.MovaClubDb
 {
     public class MovaClubDbContext : IdentityDbContext<AppUser>
     {
-        //public DbSet<AppUser> Users { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Administrator> Administrators { get; set; }
@@ -44,19 +39,6 @@ namespace MovaClubWebApp.MovaClubDb
             modelBuilder.Entity<OfficeTeacher>().HasKey(ot => new { ot.OfficeId, ot.TeacherId });
             modelBuilder.Entity<GroupTeacher>().HasKey(gt => new { gt.GroupId, gt.TeacherId });
             modelBuilder.Entity<ClassRoom>().HasIndex(cr => new { cr.OfficeId, cr.Title }).IsUnique();
-           // modelBuilder.Entity<AppUser>().HasMany(u => u.UserRoles)
-           //     .WithOne()
-           //     .HasForeignKey(ur => ur.UserId)
-           //     .IsRequired();
-           // modelBuilder.Entity<AppRole>(b =>
-           //{
-           //    b.HasMany(e => e.UserRoles)
-           //    .WithOne(e => e.Role)
-           //    .HasForeignKey(ur => ur.RoleId)
-           //    .IsRequired();
-           //});
-
-
         }
     }
 }

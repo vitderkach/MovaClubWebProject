@@ -3,8 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MovaClubWebApp.MovaClubDb.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MovaClubWebApp.Data
@@ -37,14 +35,45 @@ namespace MovaClubWebApp.Data
                 var ownerUser = new AppUser
                 {
                     UserName = configuration["AppSettings:OwnerUserName"],
-                    Email = configuration["AppSettings:OwnerUserEmail"]
-
+                    Email = configuration["AppSettings:OwnerUserEmail"],
+                    EmailConfirmed = true,
+                    FirstName = "Vitaliy",
+                    LastName = "Derkach",
+                    Gender = "male",
+                    BirthdayDate = new DateTime(1999, 11, 23)
                 };
                 string ownerUserPWD = configuration["AppSettings:OwnerUserPassword"];
                 var createOwnerUser = await userManager.CreateAsync(ownerUser, ownerUserPWD);
                 if (createOwnerUser.Succeeded)
                 {
                     await userManager.AddToRoleAsync(ownerUser, "Owner");
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+
+
+            _user = await userManager.FindByEmailAsync(configuration["AppSettings:AdminUserEmail"]);
+
+            if (_user == null)
+            {
+                var ownerUser = new AppUser
+                {
+                    UserName = configuration["AppSettings:AdminUserName"],
+                    Email = configuration["AppSettings:AdminUserEmail"],
+                    EmailConfirmed = true,
+                    FirstName = "Vitaliy",
+                    LastName = "Derkach",
+                    Gender = "male",
+                    BirthdayDate = new DateTime(1999, 11, 23)
+                };
+                string ownerUserPWD = configuration["AppSettings:AdminUserPassword"];
+                var createOwnerUser = await userManager.CreateAsync(ownerUser, ownerUserPWD);
+                if (createOwnerUser.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(ownerUser, "Admin");
                 }
                 else
                 {

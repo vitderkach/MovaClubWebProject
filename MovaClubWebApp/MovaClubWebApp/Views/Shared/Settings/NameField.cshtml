@@ -1,0 +1,60 @@
+﻿@model MovaClubWebApp.Models.Shared.NameFieldModel
+
+@{
+    var switcherOpened = (Model.ContentOpened) ? "" : "settings-form--hidden";
+
+}
+
+<ul class="mdc-list">
+    <li class="mdc-list-item settings-switcher" id="name-switcher" tabindex="0">
+        <span class="mdc-list-item__text unselectable">Name</span>
+        <span class="mdc-list-item__content unselectable">@Model.FirstName @Model.LastName</span>
+        <span class="mdc-list-item__meta material-icons settings-arrow unselectable">keyboard_arrow_right</span>
+    </li>
+    <li class="settings-list-item settings-form settings-warning-text settings-list-item">
+        <form action="ChangeName" class="settings-form @switcherOpened" data-ajax-method="POST" data-ajax="true"
+              data-ajax-mode="replace" data-ajax-update="#name-field">
+            <div class="settings-confirm-text mdc-typography settings-form-item">@Model.ConfirmText</div>
+            <div asp-validation-summary="ModelOnly" class="settings-form-item mdc-typography"></div>
+            <input type="hidden" asp-for="UserName" value="@Model.UserName" />
+            @Html.AntiForgeryToken()
+            <div class="settings-form-item">
+                <div class="mdc-text-field">
+                    <input type="text" id="firstname-text-field" class="mdc-text-field__input" value="@Model.FirstName" asp-for="FirstName" aria-controls="first-name-helper-text"
+                           aria-describedby="first-name-helper-text">
+                    <label class="mdc-floating-label" for="my-text-field">First name</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="mdc-text-field-helper-line">
+                    <div id="first-name-helper-text" class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" aria-hidden="true">
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-form-item">
+                <div class="mdc-text-field">
+                    <input type="text" id="lastname-text-field" class="mdc-text-field__input" value="@Model.LastName" asp-for="LastName" aria-controls="last-name-helper-text"
+                           aria-describedby="last-name-helper-text">
+                    <label class="mdc-floating-label" for="my-text-field">Last name</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="mdc-text-field-helper-line">
+                    <div id="last-name-helper-text" class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" aria-hidden="true">
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings__submit settings-form-item">
+                <button class="mdc-button mdc-button--unelevated" type="submit">
+                    <span class="mdc-button__label">Submit</span>
+                </button>
+            </div>
+        </form>
+    </li>
+</ul>
+
+<script>
+        AccountSettings.run("name-switcher", @Model.ContentOpened.ToString().ToLower());
+</script>

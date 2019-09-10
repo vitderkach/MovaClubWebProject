@@ -1,0 +1,153 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+@model MovaClubWebApp.Models.Account.RegisterModel
+<h2>Registration form</h2>
+
+@section AccountRegister
+    {
+    <link href="~/css/account/register.css" rel="stylesheet" type="text/css" />
+}
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+@using (Html.BeginForm("Register", "Account", null, FormMethod.Post, true, new { @class = "register-form" }))
+{
+    <div class="register-form__name">
+        <div class="register-form__firstname">
+            <span asp-validation-for="FirstName" class="text-danger text-failed"></span>
+            <div class="mdc-text-field mdc-text-field--outlined">
+                <input type="text" name="firstname" class="mdc-text-field__input" asp-for="FirstName">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="firstname" class="mdc-floating-label">First name</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="register-form__lastname">
+            <span asp-validation-for="LastName" class="text-danger text-failed"></span>
+            <div class="mdc-text-field mdc-text-field--outlined">
+                <input type="text" id="lastname" class="mdc-text-field__input" asp-for="LastName">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="lastname" class="mdc-floating-label">Last name</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="register-form__username">
+        <span asp-validation-for="UserName" class="text-danger text-failed"></span>
+        <div class="mdc-text-field mdc-text-field--outlined">
+            <input type="text" id="username" class="mdc-text-field__input" asp-for="UserName"
+                   autocomplete="username">
+            <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                    <label for="username" class="mdc-floating-label">Username</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="register-form__email">
+        <span asp-validation-for="Email" class="text-danger text-failed"></span>
+        <div class="mdc-text-field mdc-text-field--outlined">
+            <input type="text" id="email" class="mdc-text-field__input" asp-for="Email">
+            <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                    <label for="email" class="mdc-floating-label">Email</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="register-form__birthday">
+        <span asp-validation-for="BirthdayDate" class="text-danger text-failed"></span>
+        <div class="mdc-text-field mdc-text-field--outlined">
+            <input type="date" id="birthday" class="mdc-text-field__input" min="1950-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")"
+                   value="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="BirthdayDate">
+            <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                    <label for="birthday" class="mdc-floating-label">Birthday</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="register-form__password password">
+        <span asp-validation-for="Password" class="text-danger text-failed"></span>
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+            <input type="password" id="password" class="mdc-text-field__input password__input" asp-for="Password"
+                   autocomplete="new-password">
+            <i class="material-icons mdc-text-field__icon password__icon" tabindex="0"
+               role="button">visibility</i>
+            <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                    <label for="password" class="mdc-floating-label">Password</label>
+
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="register-form__confirm-password password">
+        <span asp-validation-for="ConfirmPassword" class="text-danger text-failed"></span>
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+            <input type="password" id="confirm-password" class="mdc-text-field__input password__input" asp-for="ConfirmPassword"
+                   autocomplete="new-password">
+            <i class="material-icons mdc-text-field__icon password__icon" tabindex="0"
+               role="button">visibility</i>
+            <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                    <label for="confirm-password" class="mdc-floating-label">Confirm Password</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="register-form__user-type">
+        <span asp-validation-for="UserType" class="text-danger text-failed"></span>
+        <div class="mdc-select">
+            <i class="mdc-select__dropdown-icon"></i>
+            <select class="mdc-select__native-control" asp-for="UserType" asp-items="@Html.GetEnumSelectList<MovaClubWebApp.Models.Account.UserType>()">
+                <option value="" disabled selected></option>
+
+            </select>
+            <label class="mdc-floating-label">Role</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+    </div>
+
+    <div class="register-form__submit">
+        <button class="mdc-button mdc-button--unelevated" type="submit">
+            <span class="mdc-button__label">Registrer</span>
+        </button>
+    </div>
+}
+
+    <script src="~/js/password.js"></script>

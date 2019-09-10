@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="MovaClubWebApp.Controllers.AccountController">
+    <Position X="0.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAABAQAAAAQhAABAABACgIAIkCBAIAAgAMQAkAQAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Controllers.HomeController">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQEACAAAAAAAAAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Account.ConfirmModel">
+    <Position X="20" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Account\ConfirmModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Account.LoginModel">
+    <Position X="19" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>Models\Account\LoginModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Account.RegisterModel">
+    <Position X="18.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAAABCAACAQAAAAAAIAg=</HashCode>
+      <FileName>Models\Account\RegisterModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Account.VerifyModel">
+    <Position X="18.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Account\VerifyModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.AbstractSettingsField">
+    <Position X="8.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQAIAAAAAAA=</HashCode>
+      <FileName>Models\Shared\AbstractSettingsField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.BirthdayFieldModel">
+    <Position X="6" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Shared\BirthdayFieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.EmailFieldModel">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Shared\EmailFieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.NameFieldModel">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Models\Shared\NameFieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.PasswordFieldModel">
+    <Position X="10.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\Shared\PasswordFieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.PhoneNumberFieldModel">
+    <Position X="1" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Shared\PhoneNumberFieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.RoleFieldModel">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Shared\RoleFieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.RoleRequestFieldModel">
+    <Position X="15.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Shared\RoleRequestFieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Models.Shared.SettingsModel">
+    <Position X="20.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAACAEAAIQAAAAAAIAAACAQAAAAAAAAg=</HashCode>
+      <FileName>Models\Shared\SettingsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.MovaClubDb.MovaClubDbContext">
+    <Position X="9.5" Y="10" Width="1.75" />
+    <Members>
+      <Property Name="ClassRooms" Hidden="true" />
+      <Property Name="ExceptLessons" Hidden="true" />
+      <Property Name="Groups" Hidden="true" />
+      <Property Name="GroupStudents" Hidden="true" />
+      <Property Name="GroupTeachers" Hidden="true" />
+      <Property Name="LanguageLevels" Hidden="true" />
+      <Property Name="Languages" Hidden="true" />
+      <Property Name="LanguageTeachers" Hidden="true" />
+      <Property Name="Lessons" Hidden="true" />
+      <Property Name="OccurLessons" Hidden="true" />
+      <Property Name="Offices" Hidden="true" />
+      <Property Name="OfficeTeachers" Hidden="true" />
+      <Property Name="Subscriptions" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAIAAEAQCAIQAAAAAEAAAAAIEAIAAAAAAAAUAwIAAQA=</HashCode>
+      <FileName>MovaClubDb\MovaClubDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.MovaClubDb.Models.Administrator">
+    <Position X="15.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>MovaClubDb\Models\Administrator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.MovaClubDb.Models.AppUser">
+    <Position X="4.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAAAAAACAAAAQAAAAAAABAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>MovaClubDb\Models\AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.MovaClubDb.Models.Student">
+    <Position X="15.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAgAAAgAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>MovaClubDb\Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.MovaClubDb.Models.Teacher">
+    <Position X="15.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAgAAAgQIAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>MovaClubDb\Models\Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Areas.Admin.Controllers.AccountController">
+    <Position X="5.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABCQAAQgABAAFAAAACAAAIAAAAAAEAAMBAkAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Areas.Admin.Models.AboutUserModel">
+    <Position X="13.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Models\AboutUserModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Areas.Admin.Models.ViewUser">
+    <Position X="21.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIACAAAACAEAAAQAAAAAAIAAAAAQAAAAAAAAg=</HashCode>
+      <FileName>Areas\Admin\Models\ManageModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Areas.Admin.Models.ManageModel">
+    <Position X="13.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\Models\ManageModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Areas.Owner.Controllers.AccountController">
+    <Position X="8" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Owner\Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Program">
+    <Position X="9.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Startup">
+    <Position X="15.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAACAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Services.AuthMessageSenderOptions">
+    <Position X="17.5" Y="13.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AuthMessageSenderOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.Services.EmailSender">
+    <Position X="18.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Services\EmailSender.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MovaClubWebApp.Services.TemporaryAuthenticationDefaults">
+    <Position X="20.5" Y="14" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\TemporaryAuthenticationDefaults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovaClubWebApp.AppllicationBuilderExtensions">
+    <Position X="12.75" Y="14" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MovaClubWebApp.Models.Account.UserType">
+    <Position X="12.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Account\RegisterModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

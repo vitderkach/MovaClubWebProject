@@ -1,0 +1,125 @@
+﻿@using System.Text.RegularExpressions;
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Newtonsoft.Json
+@inject IViewLocalizer Localizer
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Office calendar";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+@section Calendar
+    {
+    <link href="~/css/calendar.css" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="timetable">
+    <div class="calendar">
+        <div class="calendar__month">
+            <ul class="month__list">
+                <button class="mdc-button mdc-button--unelevated month__prev"><i class="material-icons mdc-button__label" aria-hidden="true" onclick="">keyboard_arrow_left</i></button>
+                <button class="mdc-button mdc-button--unelevated month__next"><i class="material-icons mdc-button__label" aria-hidden="true">keyboard_arrow_right</i></button>
+                <li><span id="month"></span><br /><span style="font-size:18px" id="year"></span></li>
+            </ul>
+        </div>
+
+        <ul class="calendar__weekdays">
+            <!--
+                -->
+            <li class="weekdays__item">@Localizer["Monday"]</li>
+            <!--
+            -->
+            <li class="weekdays__item">@Localizer["Tuesday"]</li>
+            <!--
+            -->
+            <li class="weekdays__item">@Localizer["Wednesday"]</li>
+            <!--
+            -->
+            <li class="weekdays__item">@Localizer["Thursday"]</li>
+            <!--
+            -->
+            <li class="weekdays__item">@Localizer["Friday"]</li>
+            <!--
+            -->
+            <li class="weekdays__item">@Localizer["Saturday"]</li>
+            <!--
+            -->
+            <li class="weekdays__item">@Localizer["Sunday"]</li>
+            <!--
+            -->
+        </ul>
+
+        <ul class="calendar__days"></ul>
+    </div>
+
+
+    <div>
+
+    </div>
+
+    <div class="schedule">
+        <div class="schedule__header">
+            <div class="schedule__padding"></div>
+            <div class="schedule__date">
+                <div class="schedule__day">
+
+                </div>
+                <div class="schedule__weekday">
+
+                </div>
+            </div>
+        </div>
+        <div class="schedule__body">
+            <div class="schedule__time">
+                @for (int i = 1; i <= 12; i++)
+                {
+                    <div class="schedule__time-item"><span class="schedule__time-content">@i AM</span></div>
+                }
+
+                @for (int i = 1; i <= 11; i++)
+                {
+                    <div class="schedule__time-item"><span>@i PM</span></div>
+                }
+            </div>
+            <div class="schedule__content">
+                @for (int i = 0; i <= 11; i++)
+                {
+                    <div class="schedule__content-item" id="@i-am-content-item"></div>
+                }
+                @for (int i = 0; i <= 11; i++)
+                {
+                    <div class="schedule__content-item" id="@i-pm-content-item"></div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+        var january = @Html.Raw(JsonConvert.SerializeObject(Localizer["January"].Value));
+        var february = @Html.Raw(JsonConvert.SerializeObject(Localizer["February"].Value));
+        var march = @Html.Raw(JsonConvert.SerializeObject(Localizer["March"].Value));
+        var april = @Html.Raw(JsonConvert.SerializeObject(Localizer["April"].Value));
+        var may = @Html.Raw(JsonConvert.SerializeObject(Localizer["May"].Value));
+        var june = @Html.Raw(JsonConvert.SerializeObject(Localizer["June"].Value));
+        var july = @Html.Raw(JsonConvert.SerializeObject(Localizer["July"].Value));
+        var august = @Html.Raw(JsonConvert.SerializeObject(Localizer["August"].Value));
+        var september = @Html.Raw(JsonConvert.SerializeObject(Localizer["September"].Value));
+        var october = @Html.Raw(JsonConvert.SerializeObject(Localizer["October"].Value));
+        var november = @Html.Raw(JsonConvert.SerializeObject(Localizer["November"].Value));
+        var december = @Html.Raw(JsonConvert.SerializeObject(Localizer["December"].Value));
+
+        var monday = @Html.Raw(JsonConvert.SerializeObject(Localizer["Monday"].Value));
+        var tuesday = @Html.Raw(JsonConvert.SerializeObject(Localizer["Tuesday"].Value));
+        var wednesday = @Html.Raw(JsonConvert.SerializeObject(Localizer["Wednesday"].Value));
+        var thursday = @Html.Raw(JsonConvert.SerializeObject(Localizer["Thurdday"].Value));
+        var friday = @Html.Raw(JsonConvert.SerializeObject(Localizer["Friday"].Value));
+        var saturday = @Html.Raw(JsonConvert.SerializeObject(Localizer["Saturday"].Value));
+        var sunday = @Html.Raw(JsonConvert.SerializeObject(Localizer["Sunday"].Value));
+</script>
+
+<script src="~/js/calendar.js"></script>

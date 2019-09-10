@@ -1,0 +1,50 @@
+﻿@section AccountSettings
+    {
+    <link href="~/css/account/settings.css" rel="stylesheet" />
+}
+@model MovaClubWebApp.Models.Shared.SettingsModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger" ></div>
+
+<script src="~/js/account/settings.js"></script>
+<script src="~/js/account/settings-startup.js">
+
+</script>
+<div class="settings">
+    <div class="mdc-elevation--z5 settings-elevation">
+        <div class="settings-header">
+            <span class="settings-header__text">Profile settings</span>
+        </div>
+        <div class="settings-body">
+
+            <div class="settings-body-item" id="name-field">
+                @await Html.PartialAsync("Settings/NameField", new MovaClubWebApp.Models.Shared.NameFieldModel { FirstName = Model.FirstName, LastName = Model.LastName, ContentOpened = false })
+            </div>
+
+            <div class="settings-body-item" id="password-field">
+                @await Html.PartialAsync("Settings/PasswordField", new MovaClubWebApp.Models.Shared.PasswordFieldModel() { VisiblePassword = Model.Password, ContentOpened = false })
+            </div>
+
+            <div class="settings-body-item" id="birthday-field">
+                @await Html.PartialAsync("Settings/BirthdayField", new MovaClubWebApp.Models.Shared.BirthdayFieldModel { Birthday = Model.Birthday, ContentOpened = false })
+            </div>
+
+            <div class="settings-body-item" id="email-field">
+                @await Html.PartialAsync("Settings/EmailField", new MovaClubWebApp.Models.Shared.EmailFieldModel { Email = Model.Email, ContentOpened = false })
+            </div>
+
+            <div class="settings-body-item" id="number-field">
+                @await Html.PartialAsync("Settings/PhoneNumberField", new MovaClubWebApp.Models.Shared.PhoneNumberFieldModel { PhoneNumber = Model.PhoneNumber, ContentOpened = false })
+            </div>
+
+            <div class="settings-body-item" id="role-field">
+                @await Html.PartialAsync("Settings/RoleField", new MovaClubWebApp.Models.Shared.RoleFieldModel { Role = Model.Role, ContentOpened = false, RoleRequest = Model.RoleRequest })
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>

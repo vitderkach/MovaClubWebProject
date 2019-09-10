@@ -1,0 +1,51 @@
+﻿@model MovaClubWebApp.Models.Shared.BirthdayFieldModel
+
+@{
+    var switcherOpened = (Model.ContentOpened) ? "" : "settings-form--hidden";
+    var birthday = (DateTime.Parse(Model.Birthday)).ToString("yyyy-MM-dd");
+}
+
+<ul class="mdc-list">
+
+    <li role="separator" class="mdc-list-divider"></li>
+    <li class="mdc-list-item settings-switcher" id="birthday-switcher">
+        <span class="mdc-list-item__text unselectable">Birthday date</span>
+        <span class="mdc-list-item__content unselectable">@((DateTime.Parse(Model.Birthday)).ToString("dd.MM.yyyy"))</span>
+        <span class="mdc-list-item__meta material-icons settings-arrow unselectable">keyboard_arrow_right</span>
+    </li>
+
+
+    <li class="settings-list-item settings-form settings-warning-text settings-list-item">
+
+        <form action="ChangeBirthday" method="post" class="settings-form @switcherOpened" data-ajax-method="POST" data-ajax="true"
+              data-ajax-mode="replace" data-ajax-update="#birthday-field">
+            <div class="settings-confirm-text mdc-typography settings-form-item">@Model.ConfirmText</div>
+            <div asp-validation-summary="ModelOnly" class="settings-form-item mdc-typography"></div>
+            <input type="hidden" asp-for="UserName" value="@Model.UserName" />
+            @Html.AntiForgeryToken()
+            <div class="settings-form-item">
+                <div class="mdc-text-field">
+                    <input type="date" id="birthday-text-field" class="mdc-text-field__input" min="1950-01-01" max="@birthday"
+                           value="@birthday" aria-controls="birthday-helper-text"
+                           aria-describedby="birthday-helper-text" asp-for="Birthday">
+                    <label class="mdc-floating-label" for="my-text-field">Birthday date</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="mdc-text-field-helper-line">
+                    <div id="birthday-helper-text" class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" aria-hidden="true">
+                        <span asp-validation-for="Birthday"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="settings__submit settings-form-item">
+                <button class="mdc-button mdc-button--unelevated" type="submit">
+                    <span class="mdc-button__label">Submit</span>
+                </button>
+            </div>
+        </form>
+    </li>
+</ul>
+
+<script>AccountSettings.run("birthday-switcher", @Model.ContentOpened.ToString().ToLower())</script>

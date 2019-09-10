@@ -1,8 +1,8 @@
 ﻿const autoprefixer = require('autoprefixer');
-
 module.exports = {
+    mode: 'development',
     output: {
-        filename: 'app.js',
+        filename: '[name].js',
     },
     module: {
         rules: [
@@ -12,7 +12,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'app.css',
+                            name: '[name].css',
                         },
                     },
                     { loader: 'extract-loader' },

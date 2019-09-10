@@ -1,0 +1,64 @@
+﻿@model MovaClubWebApp.Models.Shared.PhoneNumberFieldModel
+
+@{
+    var switcherOpened = (Model.ContentOpened) ? "" : "settings-form--hidden";
+}
+
+<ul class="mdc-list ">
+    <li role="separator" class="mdc-list-divider"></li>
+    <li class="mdc-list-item settings-switcher" id="phone-number-switcher">
+        <span class="mdc-list-item__text unselectable">Phone number</span>
+        <span class="mdc-list-item__content unselectable">@Model.PhoneNumber</span>
+        <span class="mdc-list-item__meta material-icons settings-arrow unselectable">keyboard_arrow_right</span>
+    </li>
+
+    @if (Model.PhoneNumber == "Empty")
+    {
+        Model.PhoneNumber = "";
+    }
+
+    <li class="settings-list-item settings-form settings-warning-text settings-list-item">
+
+        <form method="post" class="settings-form @switcherOpened" data-ajax-method="POST" data-ajax="true"
+              data-ajax-mode="replace" data-ajax-update="#number-field" asp-action="ChangePhoneNumber" asp-controller="Account">
+            <div class="settings-confirm-text mdc-typography settings-form-item">@Model.ConfirmText</div>
+            <div asp-validation-summary="ModelOnly" class="settings-form-item mdc-typography"></div>
+            <input type="hidden" asp-for="UserName" value="@Model.UserName" />
+            @Html.AntiForgeryToken()
+            <div class="settings-form-item">
+                <div class="mdc-text-field">
+                    <input id="phone-number-field" class="mdc-text-field__input" aria-controls="phone-numbery-helper-text"
+                           aria-describedby="phone-number-helper-text" asp-for="PhoneNumber" type="text" placeholder="+380 (__) ___-__-__">
+                    <label class="mdc-floating-label" for="my-text-field">New number</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="mdc-text-field-helper-line">
+                    <div id="phone-numbery-helper-text" class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" aria-hidden="true">
+                        <span asp-validation-for="PhoneNumber"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-form-item">
+                <div class="settings__submit ">
+                    <button class="mdc-button mdc-button--unelevated" type="submit">
+                        <span class="mdc-button__label">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </li>
+
+</ul>
+
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-mask-plugin/dist/jquery.mask.js"></script>
+<script>
+    $('#phone-number-field').mask('+38 (000) 000-00-00');
+</script>
+<script>AccountSettings.run("phone-number-switcher", @Model.ContentOpened.ToString().ToLower())</script>
+

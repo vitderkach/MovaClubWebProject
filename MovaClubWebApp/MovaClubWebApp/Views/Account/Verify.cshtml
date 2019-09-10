@@ -1,0 +1,20 @@
+﻿@model MovaClubWebApp.Models.Account.VerifyModel
+
+
+
+<div class="check">
+    <div class="check-head">
+        <span class="check-head__title">Check your email inbox</span>
+        <span class="check-head__text">We sent an email link to complete your registration</span>
+        <span class="check-head__text">Tip: check your spam folder in case the email was correctly identified</span>
+    </div>
+    <div class="check-content">
+        <span class="check-content_text">Didn't receive the email?</span>
+        <form asp-controller="Account" asp-action="Verify" method="post" name="Verify">
+            <input type="hidden" name="Email" value="@Model.Email" asp-for="Email"/>
+            <button type="submit">Resend email</button>
+        @*<a class="check-content_email-link" href="javascript:document.Verify.submit()">Resend Email</a>*@
+            </form>
+        <a class="check-content_return-link" asp-controller="Home" asp-action="Index">Return home</a>
+    </div>
+</div>

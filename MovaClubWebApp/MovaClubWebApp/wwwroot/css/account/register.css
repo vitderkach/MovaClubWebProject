@@ -1,0 +1,21 @@
+.register-form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto; }
+
+.register-form__name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.register-form__name, .register-form__password, .register-form__repeat-password,
+.register-form__email, .register-form__user-type, .register-form__submit {
+  margin: 20px auto; }
+
+.register-form__name, .register-form__password, .register-form__repeat-password,
+.register-form__email, .mdc-text-field {
+  width: 100%; }
+
+.text-danger, .text-failed {
+  text-align: center; }

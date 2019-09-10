@@ -1,42 +1,80 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Login";
 }
-
+@model MovaClubWebApp.Models.Account.LoginModel
 <h2>Login</h2>
+@section AccountLogin
+    {
+    <link href="~/css/account/login.css" rel="stylesheet" type="text/css" />
+}
 
-<div class="mdc-text-field mdc-text-field--outlined">
-    <input class="mdc-text-field__input">
-    <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"></div>
-        <div class="mdc-notched-outline__notch">
-            <label class="mdc-floating-label">Name</label>
-        </div>
-        <div class="mdc-notched-outline__trailing"></div>
-    </div>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div>
+    <span>Need to create an account?</span><a asp-controller="Account" asp-action="Register">Register</a>
 </div>
-<div class="mdc-text-field mdc-text-field--outlined">
-    <input class="mdc-text-field__input">
-    <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"></div>
-        <div class="mdc-notched-outline__notch">
-            <label class="mdc-floating-label">Password</label>
+@using (Html.BeginForm("login", "account", FormMethod.Post, new { data_ajax = "false" }))
+{
+
+
+    <span asp-validation-for="Identificator" class="text-danger text-failed"></span>
+    <div class="mdc-text-field mdc-text-field--outlined username">
+        <input type="text" id="username" class="mdc-text-field__input" asp-for="Identificator" autocomplete = "username">
+        <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch mdc-notched-outline--notched">
+                <label for="username" class="mdc-floating-label">Name</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
         </div>
-        <div class="mdc-notched-outline__trailing"></div>
+
     </div>
+
+
+
+
+
+
+    <span asp-validation-for="Password" class="text-danger text-failed "></span>
+    <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon password">
+        <input type="password" class="mdc-text-field__input password__input" id="password" asp-for="Password" autocomplete="current-password">
+        <i class="material-icons mdc-text-field__icon password__icon" tabindex="0"
+           role="button">visibility</i>
+        <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch ">
+                <label for="password" class="mdc-floating-label">Password</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="button-login">
+        <span>
+            <input type="checkbox" asp-for="RememberMe" />
+            <span>Remember me</span>
+
+        </span>
+        <button class="mdc-button mdc-button--unelevated" type="submit">
+            <span class="mdc-button__label">Login</span>
+        </button>
+    </div>
+}
+
+<div class="login-social">
+    <a asp-controller="Account" asp-action="Login" asp-route-provider="Facebook" asp-route-returnUrl="@Context.Request.Query["returnUrl"]" class="mdc-button mdc-button--outlined">
+        <img class="mdc-button__icon" aria-hidden="true" src="~/images/providers/facebook.svg" />
+        <span class="mdc-button__label">Facebook</span>
+    </a>
+
+    <a asp-controller="Account" asp-action="Login" asp-route-provider="Google" asp-route-returnUrl="@Context.Request.Query["returnUrl"]" class="mdc-button mdc-button--outlined">
+        <img class="mdc-button__icon" aria-hidden="true" src="~/images/providers/google.svg" />
+        <span class="mdc-button__label">Google</span>
+    </a>
 </div>
 
-<button class="mdc-button "></button>
-
-
-<button class="mdc-button mdc-button--outlined">
-    <img class="mdc-button__icon" aria-hidden="true" src="~/images/providers/facebook.svg"/>
-    <span class="mdc-button__label"></span>
-</button>
-
-
-<button class="mdc-button mdc-button--outlined">
-    <img class="mdc-button__icon" aria-hidden="true" src="~/images/providers/google.svg" />
-    <span class="mdc-button__label"></span>
-</button>
-
+<script src="~/js/password.js"></script>

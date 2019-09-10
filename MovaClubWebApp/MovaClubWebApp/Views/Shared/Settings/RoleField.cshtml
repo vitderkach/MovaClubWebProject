@@ -1,0 +1,46 @@
+﻿@model MovaClubWebApp.Models.Shared.RoleFieldModel
+
+@{
+    var switcherOpened = (Model.ContentOpened) ? "" : "settings-form--hidden";
+}
+
+<ul class="mdc-list">
+    <li role="separator" class="mdc-list-divider"></li>
+    <li class="mdc-list-item settings-switcher" id="role-switcher">
+        <div class="mdc-list-item__text unselectable">Role</div>
+        <div class="mdc-list-item__content unselectable" id="role-header">@Model.Role</div>
+        <div class="mdc-list-item__meta material-icons settings-arrow unselectable">keyboard_arrow_right</div>
+    </li>
+    <li class="settings-list-item settings-form settings-list-item">
+
+        <form action="ChangeRole" class="settings-form @switcherOpened" data-ajax-method="POST" data-ajax="true"
+              data-ajax-mode="replace" data-ajax-update="#role-field">
+            <div class="settings-confirm-text mdc-typography settings-form-item">@Model.ConfirmText</div>
+            @if (Model.RoleRequest != "Empty" && Model.RoleRequest != null)
+            {
+                <div class="mdc-typography settings-form-item">You sent a request to change your role on @Model.RoleRequest.
+            Please, wait administrator consideration.</div>
+            }
+            <div asp-validation-summary="ModelOnly" class="settings-form-item mdc-typography"></div>
+            <input type="hidden" asp-for="UserName" value="@Model.UserName" />
+            @Html.AntiForgeryToken()
+            <div class="mdc-select settings-form-item">
+                <i class="mdc-select__dropdown-icon"></i>
+                <select class="mdc-select__native-control" asp-items="@Html.GetEnumSelectList<MovaClubWebApp.Models.Account.UserType>()"
+asp-for="Role">
+                    <option value="" disabled selected></option>
+                </select>
+                <label class="mdc-floating-label">Role</label>
+                <div class="mdc-line-ripple"></div>
+            </div>
+
+            <div class="settings__submit settings-form-item">
+                <button class="mdc-button mdc-button--unelevated" type="submit">
+                    <span class="mdc-button__label">Submit</span>
+                </button>
+            </div>
+        </form>
+    </li>
+</ul>
+
+<script>AccountSettings.run("role-switcher", @Model.ContentOpened.ToString().ToLower())</script>
