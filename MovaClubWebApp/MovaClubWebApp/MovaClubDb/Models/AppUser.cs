@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace MovaClubWebApp.MovaClubDb.Models
 {
     public class AppUser : IdentityUser

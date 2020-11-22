@@ -3,6 +3,5 @@
     public class AboutUserModel
     {
         public ViewUser ViewUser { get; set; }
-
     }
 }

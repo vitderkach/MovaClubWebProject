@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -77,11 +78,7 @@ namespace MovaClubWebApp.Controllers
         public IActionResult Login()
         {
 
-            if (_signInManager.IsSignedIn(User))
-            {
-                return RedirectToAction("Index");
-            }
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (_signInManager.IsSignedIn(User) || HttpContext.User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index");
             }
@@ -107,6 +104,7 @@ namespace MovaClubWebApp.Controllers
                             var result = await _signInManager.PasswordSignInAsync(model.Identificator, model.Password, model.RememberMe, false);
                             if (result.Succeeded)
                             {
+                                await SetUserCookies(user.Id);
                                 if ((!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl)) && returnUrl != "/")
                                 {
                                     return Redirect(returnUrl);
@@ -280,11 +278,7 @@ namespace MovaClubWebApp.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(string provider, string returnUrl = "/")
         {
-            if (_signInManager.IsSignedIn(User))
-            {
-                return RedirectToAction("Index");
-            }
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (_signInManager.IsSignedIn(User) || HttpContext.User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index");
             }
@@ -358,6 +352,7 @@ namespace MovaClubWebApp.Controllers
 
                     await _userManager.AddLoginAsync(user, new UserLoginInfo(provider, id, provider));
                     await _signInManager.SignInAsync(user, true, null);
+                    await SetUserCookies(user.Id);
                 }
 
             }
@@ -720,6 +715,14 @@ namespace MovaClubWebApp.Controllers
                 model.RoleRequest = (user.ChangeRoleRequest != null) ? user.ChangeRoleRequest : "Empty";
             }
             return model;
+        }
+
+        private async Task SetUserCookies(string userId)
+        {
+            int loginCount = 0;
+            int.TryParse(HttpContext.Request.Cookies[$"LOGIN_COUNT_{userId}"], out loginCount);
+            loginCount++;
+            HttpContext.Response.Cookies.Append($"LOGIN_COUNT_{userId}", loginCount.ToString() ,new CookieOptions() { MaxAge = TimeSpan.MaxValue });
         }
     }
 }

@@ -1,8 +1,14 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity;
+@using MovaClubWebApp.MovaClubDb.Models;
+@inject UserManager<AppUser> userManager;
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Index";
+    var user = await userManager.GetUserAsync(User);
+    var userId = user.Id;
 }
-
 
 <h2>Hello, @User.Identity.Name</h2>
 <h2>Your role is Admin</h2>
+<h2>Count of logins: @Context.Request.Cookies[$"LOGIN_COUNT_{userId}"]</h2>
